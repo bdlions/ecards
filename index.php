@@ -24,6 +24,14 @@
 	</head>	
 
     <body class="main">
+		<table align="center">				
+			<tr>
+				<td><input type = "button" name = "template1" id="template1" value="Template 1"/></td>
+			</tr>	
+			<tr>
+				<td><input type = "button" name = "template2" id="template2" value="Template 2"/></td>
+			</tr>
+		</table>
 		<table align="center" style="width:850px;height:400px">
 			<tr>
 				<td colspan="3">
@@ -32,6 +40,8 @@
 							var imageCanvas = null;
 							var problemImage = null;
 							var canvasContext = null;
+							
+							var selectedTemplateId = "";
 							
 							window.onload = function()
 							{
@@ -108,6 +118,32 @@
 			</tr>
 		</table>
 		<div style="visibility: hidden">
+			<div id="textCreatorDiv" style="border: 1px black solid; display: block;">				
+				<table align="center">					
+					<tr>
+						<td colspan="2">
+							<canvas id="textCreatorCanvas"> 
+								Sorry, your browser doesn't support HTML5.
+							</canvas>
+						</td>
+					</tr>
+					<tr>
+						<td><label>From</label>&nbsp;</td>
+						<td><label for="fromText"></label>
+						<input type="text" name="fromText" id="fromText" maxlength="20"></td>
+					</tr>	
+					<tr>
+						<td><label>To</label>&nbsp;</td>
+						<td><label for="toText"></label>
+						<input type="text" name="toText" id="toText" maxlength="20"></td>
+					</tr>	
+					<tr>
+						<td><label>Message</label>&nbsp;</td>
+						<td><label for="messageText"></label>
+						<input type="text" name="messageText" id="messageText" maxlength="20"></td>
+					</tr>					
+				</table>	
+			</div> 
 			<div id="fileUploaderDiv" title="Basic dialog">
 				<form id="fileUploadForm" name="fileUploadForm" action="uploader.php"  method="post" enctype="multipart/form-data">
 					<table>

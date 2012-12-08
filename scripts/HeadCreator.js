@@ -1,11 +1,11 @@
-define(["jquery", "Circle", "Common"], function($, Circle, Common) 
+define(["jquery", "Circle", "Square", "Common"], function($, Circle, Square, Common) 
 {
 	function HeadCreator(div)
 	{
 		var imageStartX, imageStartY;
 		var rotateValue = 0, scaleSize = 1;
 		var dragStartX = 0;
-			var dragStartY = 0;
+		var dragStartY = 0;
 		var headCreatorDiv = $("#"+div );
 		var headCreatorCanvas = headCreatorDiv.find("canvas")[0];
 		var headCreatorContext;
@@ -17,7 +17,7 @@ define(["jquery", "Circle", "Common"], function($, Circle, Common)
 			modal: true,
 			autoOpen: false,
 			height: 400,
-			width: 400,
+			width: 600,
 			buttons: 
 			{
 				'Ok': function() 
@@ -51,7 +51,15 @@ define(["jquery", "Circle", "Common"], function($, Circle, Common)
 			if(headCreatorCanvas.getContext)
 			{
 				headCreatorContext = headCreatorCanvas.getContext("2d")
-				selectionHeadShape = new Circle(headCreatorContext);
+				if(selectedTemplateId == "template1")
+				{
+					selectionHeadShape = new Circle(headCreatorContext);
+				}
+				else if(selectedTemplateId == "template2")
+				{
+					selectionHeadShape = new Square(headCreatorContext);
+				}
+				
 				
 				headImage.onload = function()
 				{
